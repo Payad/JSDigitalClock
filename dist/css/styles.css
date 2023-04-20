@@ -59,7 +59,7 @@ body {
     opacity: 1;
   }
 }
-.clock, .hourBtn, .minuteBtn, .setBtn {
+.clockBtn, .hourBtn, .minuteBtn, .setBtn {
   border-radius: 5rem;
   margin: 3px;
 }
