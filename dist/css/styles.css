@@ -50,5 +50,9 @@ body {
     opacity: 1;
   }
 }
+.clock, .hourBtn, .minuteBtn, .setBtn {
+  border-radius: 5rem;
+  margin: 3px;
+}
 
 /*# sourceMappingURL=styles.css.map */
