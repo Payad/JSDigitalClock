@@ -33,7 +33,20 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 2rem;
+        // font-size: 4rem;
+        font-size: 70px;
+        position: relative;
+    }
+
+    .hour, .minute {
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .meridian {
+        position: absolute;
+        right: 0;
+        margin-right: 1rem;
+        font-size: 20px;
     }
 }
 
@@ -52,6 +65,7 @@ body {
             opacity: 1
         }
     }
+
 
     .clock, .hourBtn, .minuteBtn, .setBtn {
         border-radius: 5rem;
