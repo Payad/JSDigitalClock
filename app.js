@@ -54,6 +54,20 @@ if (minEl.innerHTML === '0' + 0) {
 // let clicked = false;
 clockBtn.addEventListener('click', () => {
     clearInterval(clrInt);
+    // clearInterval(clrM);
+    // minBtn.addEventListener('click', () => {
+    //     hourEl.style.removeProperty('animation')
+    //     minEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
+    //     // clearInterval(clrInt)
+    //     clockBtn.disabled = true;
+    //     if (minEl.innerHTML < 59) {
+    //         ++minEl.innerHTML;
+    //         minEl.innerHTML = ('0' + minEl.innerHTML).slice(-2);
+    //     } else {
+    //     // minEl.innerHTML = ('0' + minId.innerHTML).slice(-2);
+    //     minEl.innerHTML = '0' + 0;
+    // }
+    // })
     hourEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
     minEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
     separator.style.setProperty('animation', 'none');
@@ -104,6 +118,7 @@ clockBtn.addEventListener('click', () => {
         hourBtn.disabled = true;
         minBtn.disabled = true;
     })
+    // clearInterval(clrM);
 })
 
 hourBtn.addEventListener('click', () => {
@@ -127,7 +142,7 @@ hourBtn.addEventListener('click', () => {
 minBtn.addEventListener('click', () => {
     hourEl.style.removeProperty('animation')
     minEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
-    clearInterval(clrInt)
+    // clearInterval(clrInt)
     clockBtn.disabled = true;
     if (minEl.innerHTML < 59) {
         ++minEl.innerHTML;
