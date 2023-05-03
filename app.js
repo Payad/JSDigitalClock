@@ -33,64 +33,109 @@ const hourBtn = document.querySelector('.hourBtn');
 const minBtn = document.querySelector('.minuteBtn');
 const setBtn = document.querySelector('.setBtn');
 
+// const clrH = setInterval(setHour());
+
 function setHour() {
     hourEl.innerHTML++;
 }
 
 function setMinute() {
+if (minEl.innerHTML < 59) {
     minEl.innerHTML++;
+    minEl.innerHTML = ('0' + minEl.innerHTML).slice(-2);
+} else {
+    minEl.innerHTML = '0' + 0;
+}
+if (minEl.innerHTML === '0' + 0) {
+    hourEl.innerHTML++;
+}
 }
 
+// let clicked = false;
 clockBtn.addEventListener('click', () => {
     clearInterval(clrInt);
     hourEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
     minEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
     separator.style.setProperty('animation', 'none');
+    // clockBtn.disabled = false;
+    hourBtn.disabled = false;
+    minBtn.disabled = false;
 
-    hourBtn.addEventListener('click', () => {
-        minEl.style.setProperty('animation', 'none');
-        hourEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite')
-        // console.log(hourRatio);
-        clearInterval(clrInt);
-        if(clockBtn) {
-            clockBtn.disabled = true;
-        }
-
-        if (hourEl.innerHTML < 12) {
-        hourEl.innerHTML++;
-        } else {
-            hourEl.innerHTML = 1;
-        }
-        // console.log(hourEl);
-    });
+    // hourBtn.addEventListener('click', () => {
+    //     minEl.style.setProperty('animation', 'none');
+    //     hourEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite')
+    //     // clearInterval(clrInt);
+    //     clockBtn.disabled = true;
+    //     if (hourEl.innerHTML < 12) {
+    //     hourEl.innerHTML++;
+    //     } else {
+    //         hourEl.innerHTML = 1;
+    //     }
+    //     if (hourBtn.clicked = true) {
+    //         // hourEl.innerHTML =- 1;
+    //         console.log('Hello')
+    //         // console.log(hourEl.innerHTML =- 1);
+    //     }
+    //     // console.log('Hello');
+    // });
 
     // const minId = document.getElementById('minute');
-    minBtn.addEventListener('click', () => {
-        hourEl.style.removeProperty('animation')
-        minEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
-        clearInterval(clrInt)
-        if(clockBtn) {
-            clockBtn.disabled = true;
-        }
-
-        if (minEl.innerHTML < 59) {
-            minEl.innerHTML++;
-            minEl.innerHTML = ('0' + minEl.innerHTML).slice(-2);
-        } else {
-        // minEl.innerHTML = ('0' + minId.innerHTML).slice(-2);
-        minEl.innerHTML = '0' + 0;
-    }
-    })
+    // minBtn.addEventListener('click', () => {
+    //     hourEl.style.removeProperty('animation')
+    //     minEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
+    //     clearInterval(clrInt)
+    //     clockBtn.disabled = true;
+    //     if (minEl.innerHTML < 59) {
+    //         ++minEl.innerHTML;
+    //         minEl.innerHTML = ('0' + minEl.innerHTML).slice(-2);
+    //     } else {
+    //     // minEl.innerHTML = ('0' + minId.innerHTML).slice(-2);
+    //     minEl.innerHTML = '0' + 0;
+    // }
+    // })
     setBtn.addEventListener('click', () => {
+        clearInterval(clrInt)
         hourEl.style.setProperty('animation', 'none');
         minEl.style.setProperty('animation', 'none');
         separator.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
-        setInterval(setHour, 3600000);
-        setInterval(setMinute, 60000);
+        const clrH = setInterval(setHour, 3600000);
+        const clrM = setInterval(setMinute, 60000);
         clockBtn.disabled = false;
+        hourBtn.disabled = true;
+        minBtn.disabled = true;
     })
-    
+})
 
+hourBtn.addEventListener('click', () => {
+    minEl.style.setProperty('animation', 'none');
+    hourEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite')
+    // clearInterval(clrInt);
+    clockBtn.disabled = true;
+    if (hourEl.innerHTML < 12) {
+    hourEl.innerHTML++;
+    } else {
+        hourEl.innerHTML = 1;
+    }
+    // if (hourBtn.clicked = true) {
+    //     // hourEl.innerHTML =- 1;
+    //     console.log('Hello')
+    //     // console.log(hourEl.innerHTML =- 1);
+    // }
+    // // console.log('Hello');
+});
+
+minBtn.addEventListener('click', () => {
+    hourEl.style.removeProperty('animation')
+    minEl.style.setProperty('animation', 'separator 1s steps(1, end) infinite');
+    clearInterval(clrInt)
+    clockBtn.disabled = true;
+    if (minEl.innerHTML < 59) {
+        ++minEl.innerHTML;
+        minEl.innerHTML = ('0' + minEl.innerHTML).slice(-2);
+    } else {
+    // minEl.innerHTML = ('0' + minId.innerHTML).slice(-2);
+    minEl.innerHTML = '0' + 0;
+}
 })
 
 setDigitalClock();
